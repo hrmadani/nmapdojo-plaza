@@ -6,5 +6,5 @@ import (
 )
 
 var PlazaRoutes = func(router *mux.Router) {
-	router.HandleFunc("/reports", controllers.ShowAllAliveReports)
+	router.HandleFunc("/reports", controllers.ShowAllAliveReports).Methods("GET")
 }

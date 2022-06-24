@@ -5,6 +5,10 @@ package main
 //()Produce message to the RabbitMQ
 /////////////////////////////////////
 import (
+	"fmt"
+	"log"
+	"net/http"
+
 	"github.com/gorilla/mux"
 	plaza_routes "github.com/hrmadani/nmapdojo-plaza/pkg/routes"
 )
@@ -22,5 +26,7 @@ func InitializeRoutes() {
 func main() {
 	CreateRoutes()
 	InitializeRoutes()
-
+	http.Handle("/", router)
+	log.Fatal(http.ListenAndServe(":8000", router))
+	fmt.Println("Plaza is up!")
 }

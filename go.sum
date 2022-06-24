@@ -1,0 +1,4 @@
+github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
+github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
+github.com/hrmadani/nmapdojo-plaza v0.0.0-20220624083737-a8d2f791094a h1:6JdySUXbcFJolhELqR6UN4J3Q0Jo0NZbkpNSzbwAfRo=
+github.com/hrmadani/nmapdojo-plaza v0.0.0-20220624083737-a8d2f791094a/go.mod h1:glQzgjY63xLMQq/amTkaKADBucqnaLKSZBvk3hQDpMY=

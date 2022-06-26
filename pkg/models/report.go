@@ -3,36 +3,47 @@ package models
 import (
 	"time"
 
-	"github.com/jinzhu/gorm"
+	"github.com/hrmadani/nmapdojo-plaza/pkg/config"
+
+	"gorm.io/gorm"
 )
 
-//The struct of report types includes the Police, Traffic Jam, and Car crash reports
-type ReportTypes struct {
+var (
+	db *gorm.DB
+)
+
+type UserReport struct {
 	gorm.Model
-	ID             int
-	Type           string `json:"report_type"`                  //Police - Traffic Jam - Car Crash
-	TypeID         int    `gorm:"unique" json:"report_type_id"` //Police == 1 - Traffic Jam == 2 - Car Crash == 3
-	LifeSpan       int    `json:"life_span"`
-	FeedbackEffect int    `json:"feedback_effect"`
+	ReportId   int    `json:"report_id"`   //ziro is null
+	ReportType string `json:"report_type"` //Police - Traffic Jam - Car Crash
+	UserId     int    `json:"user_id"`
+	Action     string `json:"action"` //add , like , dislike
+	CreatedAt  time.Time
 }
 
-//Every reports is logged
-type ReportLog struct {
+//All Report
+type Report struct {
 	gorm.Model
-	ID           int       `json:"id"`
-	ReportTypeId int       `json:"report_type_id"`
-	UserId       int       `json:"user_id"`
-	ExpireTime   time.Time `gorm:"index" json:"expire_time"`
-	CreatedAt    time.Time
+	ReportType int       `json:"report_type"`
+	ExpireTime time.Time `gorm:"index" json:"expire_time"`
 }
 
 //Database connection
 func init() {
-	//Todo: Connect to database
+	//Connect to database
+	config.Connect()
+	db = config.GetDB()
+}
+
+func (userReportLog UserReport) SetNowTime() UserReport {
+	userReportLog.CreatedAt = time.Now()
+	return userReportLog
 }
 
 //All alive reports get from database
-func GetAllAliveReportLogs() ([]ReportLog, error) {
-	//Todo: Get all alive reports
-	return nil, nil
+func GetAllAliveReport() ([]Report, error) {
+	//Get all alive reports
+	var Report []Report
+	db.Where("expire_time > ?", time.Now()).Find(&Report)
+	return Report, nil
 }

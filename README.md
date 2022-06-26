@@ -15,3 +15,6 @@ the Post Json:
     "action": "add", //add - like - dislike
     "report_type" : "" //police - traffic jam - car crash 
 }
+
+## Todo
+* Test

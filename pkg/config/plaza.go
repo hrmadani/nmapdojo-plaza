@@ -10,9 +10,9 @@ const (
 	dbUserName   = "root"
 	dbPassword   = "secret"
 	dbHost       = "localhost"
-	dbname       = "reports"
+	dbname       = "nmapdojo"
 	confCharset  = "utf8mb4"
-	confLocation = "local"
+	confLocation = "Asia%2fTehran"
 )
 
 var (
@@ -22,8 +22,8 @@ var (
 //Connect to database
 
 func Connect() {
-	databaseUrl := dbUserName + ":" + dbPassword + "@tcp(" + dbHost + ")/" + dbname + "?charset=" + confCharset + "&parseTime=True&loc=" + confLocation + ""
-	connection, err := gorm.Open(mysql.Open(databaseUrl), &gorm.Config{})
+	databaseDSN := dbUserName + ":" + dbPassword + "@tcp(" + dbHost + ")/" + dbname + "?charset=" + confCharset + "&parseTime=True&loc=" + confLocation + ""
+	connection, err := gorm.Open(mysql.Open(databaseDSN), &gorm.Config{})
 	if err != nil {
 		panic("Database connection error: " + err.Error())
 	}

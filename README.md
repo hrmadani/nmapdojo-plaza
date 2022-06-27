@@ -17,5 +17,9 @@ the Post Json:
     "report_type" : "" //police - traffic jam - car crash 
 }
 
+## MySQL ERD
+
+![ERD](https://user-images.githubusercontent.com/8407237/176046943-22510058-8ce2-4a1e-a61b-b8cacb12a528.jpg)
+
 ## Todo
 * Test

@@ -2,7 +2,8 @@
 N-Map Dojo :: Plaza - The Main Point 
 
 ## Design System
-![Plaza-Design](https://user-images.githubusercontent.com/8407237/175818982-9115e82a-81a1-44ef-845c-f30a71777181.jpg)
+![System-Design](https://user-images.githubusercontent.com/8407237/176024977-1af202ef-cb35-4370-b124-b0224f1777bc.jpg)
+
 
 ## Api Address
 * Show all alive reports : GET /reports

@@ -24,7 +24,7 @@ type UserReport struct {
 //All Report
 type Report struct {
 	gorm.Model
-	ReportType int       `json:"report_type"`
+	ReportType string    `json:"report_type"`
 	ExpireTime time.Time `gorm:"index" json:"expire_time"`
 }
 
